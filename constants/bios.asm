@@ -42,8 +42,8 @@ INITXT:		equ	#6c				; Switches to SCREEN 0 (text screen with 40*24 characters)
 INIT32:		equ	#6f				; Switches to SCREEN 1 (text screen	with 32*24 characters)
 INIGRP:		equ	#72				; Switches to SCREEN 2 (high resolution screen with	256*192	pixels)
 INIMLT:		equ	#75				; Switches to SCREEN 3 (multi-color	screen 64*48 pixels)
-SETTXT:		equ	#78				; Switches VDP in SCREEN 0 modus
-SETT32:		equ	#7b				; Switches VDP in SCREEN 1 modus
+SETTXT:		equ	#78				; Switches VDP to SCREEN 0 modus
+SETT32:		equ	#7b				; Switches VDP to SCREEN 1 modus
 SETGRP:		equ	#7e				; Switches VDP to SCREEN 2 modus
 SETMLT:		equ	#81				; Switches VDP to SCREEN 3 modus
 CALPAT:		equ	#84				; Returns the address of the sprite	pattern	table
