@@ -38,7 +38,7 @@ CHGMOD:		equ	#5f				; Switches to given	screenmode
 CHGCLR:		equ	#62				; Changes the screencolors
 NMI:		equ	#66				; Executes (non-maskable interupt) handling	routine
 CLRSPR:		equ	#69				; Initialises all sprites
-INITXT:		equ	#6c				; Switches to SCREEN 0 (text screen 	with 40*24 characters)
+INITXT:		equ	#6c				; Switches to SCREEN 0 (text screen with 40*24 characters)
 INIT32:		equ	#6f				; Switches to SCREEN 1 (text screen	with 32*24 characters)
 INIGRP:		equ	#72				; Switches to SCREEN 2 (high resolution screen with	256*192	pixels)
 INIMLT:		equ	#75				; Switches to SCREEN 3 (multi-color	screen 64*48 pixels)
