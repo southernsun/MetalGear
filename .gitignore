@@ -2,3 +2,5 @@
 *.out
 *.rom
 *.sym
+.idea
+*.exe
