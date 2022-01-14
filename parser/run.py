@@ -107,7 +107,13 @@ def view(values):
             x = len(_val)
         y += 1
 
-    data = numpy.zeros((x, y, 3), dtype=numpy.uint8)
+    multiplier = int(x / 8)
+
+    print("info: x: {}, y: {}, multiplier: {},".format(x, y, multiplier))
+
+    data = numpy.zeros((x, y * multiplier, 3), dtype=numpy.uint8)
+
+    print("info: x: {}, y: {}".format(x, y * multiplier))
 
     x = 0
     y = 0
@@ -119,9 +125,15 @@ def view(values):
             # print("#{}".format(color))
             # print("{}, {}, {}".format(int(color[0:2], 16), int(color[2:4], 16), int(color[4:6], 16)))
 
+            print("data: x: {}, y: {}".format(x, y))
+
             data[x, y] = [int(color[0:2], 16), int(color[2:4], 16), int(color[4:6], 16)]
             x += 1
-        y += 1
+
+            if x % 8 == 0:
+                x = 0
+                y += 1
+        #y += 1
 
     image = Image.fromarray(data)
     image.show()
@@ -143,7 +155,7 @@ for file in os.listdir(directory):
         values = parse_gfx_file(path)
         view(values)
         count += 1
-        if count == 3:
+        if count == 1:
             exit(0)
         continue
     else:
