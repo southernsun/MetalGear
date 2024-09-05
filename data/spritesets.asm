@@ -167,7 +167,7 @@ SprSetFireTrop:	    db 50h
 		    db 0FFh
 
 SprSetCowardDuck:   db 50h
-		    dw SprBoomenrang
+		    dw SprBoomerang
 		    db 60h
 		    dw SprCowardDuck
 		    db 0D0h

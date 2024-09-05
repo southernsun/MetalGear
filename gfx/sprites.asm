@@ -1002,7 +1002,7 @@ SprShadow:	    db	  5,   0, 83h,	 7, 1Fh, 3Fh,	3, 7Fh,	83h, 3Fh, 1Fh,	 7,   7,  
 		    db 0FCh,0FEh,   3,0FFh, 85h,0FEh,0FCh,0F0h,	  0,   0,   0
 
 
-SprBoomenrang:	    db	  5,   0, 85h,	 3,   7, 0Fh, 1Ch, 30h,	0Bh,   0, 85h, 80h,0C0h,0E0h, 70h, 18h
+SprBoomerang:	    db	  5,   0, 85h,	 3,   7, 0Fh, 1Ch, 30h,	0Bh,   0, 85h, 80h,0C0h,0E0h, 70h, 18h
 		    db	0Ah,   0,   3,	 8,   3, 1Ch,	2, 1Fh,	81h, 0Fh, 0Dh,	 0, 83h, 80h,0F0h, 80h
 		    db	0Dh,   0, 83h,	 1, 0Fh,   1,	7,   0,	  3, 10h,   3, 38h,   2,0F8h, 81h,0F0h
 		    db	  3,   0,   0
