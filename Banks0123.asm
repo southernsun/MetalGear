@@ -7481,7 +7481,7 @@ SetSprColor2:
 
 
 GetFlameSinCos:
-		    ld	    a, (ix+FIRE_TROPPER.ANGLE)
+		    ld	    a, (ix+FIRE_TROOPER.ANGLE)
 ;----------------------------------------------------------------------------
 ;
 ; Get sine and cosine

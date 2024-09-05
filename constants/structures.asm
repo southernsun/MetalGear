@@ -1197,7 +1197,7 @@ ZzzSignSprIdx:	    BYTE
 
 ; ---------------------------------------------------------------------------
 
-	STRUCT	FIRE_TROPPER	    
+	STRUCT	FIRE_TROOPER	    
 ID:		    BYTE				    ; Bit 7 = Killed
 Status:		    BYTE
 Ydec:		    BYTE

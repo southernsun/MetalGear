@@ -31,7 +31,7 @@
 
 	include	"actors/powerswitch.asm"
 
-	include	"actors/firetropper.asm"
+	include	"actors/firetrooper.asm"
 
 	include	"actors/flame.asm"
 	

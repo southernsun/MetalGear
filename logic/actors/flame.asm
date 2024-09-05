@@ -43,7 +43,7 @@ FlamesLogic:
 
 		    ld	    a, ID_FIRE_TROOPER
 		    call    CountEnemyType
-		    or	    a				    ; Fire Tropper is not in the room
+		    or	    a				    ; Fire Trooper is not in the room
 		    jp	    z, DismissActor0
 
 		    ld	    b, 7
