@@ -212,7 +212,7 @@ DoorsInRoom:	    # 1
 							    ; Number of	doors in the room
 
 Weapons:	    # 1Ch
-InvSupressor:	    # 4
+InvSuppressor:	    # 4
 
 WeaponsTaken:	    # 1
 SMG_Taken:	    # 1
@@ -221,7 +221,7 @@ RocketL_Taken:	    # 1
 PBomb_Taken:	    # 1
 Mines_Taken:	    # 1
 Missiles_Taken:	    # 1
-SupressorTaken:	    # 1
+SuppressorTaken:	    # 1
 TextBoxEff_Cnt:	    # 1
 TextBoxEff_DY:	    # 1
 TextBoxEff_DX:	    # 1
@@ -317,7 +317,7 @@ Guard3ExitedLorry:  # 1
 BigBossStat:	    # 1
 							    ; 0=Dead, 1=Confession dialog
 GuardSilencerCnt:   # 1
-							    ; Four soldiers (supressor room)
+							    ; Four soldiers (suppressor room)
 PowerSwitchOnCopy:  # 1
 DesertGuardsTextF:  # 1
 PowerSwitchY:	    # 1

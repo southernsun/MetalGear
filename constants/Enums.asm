@@ -125,7 +125,7 @@ DOOR_PUNCH:	     equ 0Ah
 
 ; enum ITEMS
 NONE:		     equ 0
-SUPRESSOR:	     equ 8
+SUPPRESSOR:	     equ 8
 ARMOR:		     equ 9
 BOMB_SUIT:	     equ 0Ah
 FLASH_LIGHT:	     equ 0Bh
@@ -161,7 +161,7 @@ SPAWN_RATIO:	     equ 0
 SPAWN_AMMO:	     equ 1
 SPAWN_CARD7:	     equ 2
 SPAWN_CARD8:	     equ 3
-SPAWN_SUPRESSOR:     equ 4
+SPAWN_SUPPRESSOR:     equ 4
 
 ; ---------------------------------------------------------------------------
 

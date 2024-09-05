@@ -111,19 +111,19 @@ chkSMGShot2:
 
 		    ld	    (ix+PLAYER_SHOT.SpriteID), 0
 
-		    ld	    a, (InvSupressor)
+		    ld	    a, (InvSuppressor)
 		    and	    a
 		    ld	    a, 0Dh			    ; SFX: SMG shot
 		    jr	    z, SetSMG_Sfx
 
-		    ld	    a, 0Eh			    ; SFX: Shot	using the supressor
+		    ld	    a, 0Eh			    ; SFX: Shot	using the suppressor
 
 SetSMG_Sfx:
 		    push    af
 		    call    SetSoundEntryChk		    ; Play SFX
 		    pop	    af
 
-		    call    z, ChkAlertTrigger		    ; When not using the supressor, check is the noise triggers	the alarm
+		    call    z, ChkAlertTrigger		    ; When not using the suppressor, check is the noise triggers	the alarm
 
 		    jp	    SetShotSpr			    ; Add to shot structure the	attributes of the sprites used
 

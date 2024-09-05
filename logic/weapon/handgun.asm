@@ -63,19 +63,19 @@ ChkHandGunShot:
 
 		    ld	    (ix+PLAYER_SHOT.SpriteID), 0
 
-		    ld	    a, (InvSupressor)
-		    and	    a				    ; Has the supressor?
+		    ld	    a, (InvSuppressor)
+		    and	    a				    ; Has the suppressor?
 		    ld	    a, 0Ch			    ; Hand gun shot sfx
 		    jr	    z, ChkHandGunShot2		    ; No
 
-		    ld	    a, 0Eh			    ; Supressor	sfx
+		    ld	    a, 0Eh			    ; Suppressor	sfx
 
 ChkHandGunShot2:
 		    push    af
 		    call    SetSoundEntry		    ; Play shot	SFX
 		    pop	    af
 
-		    call    z, ChkAlertTrigger		    ; When not using the supressor, check is the noise triggers	the alarm
+		    call    z, ChkAlertTrigger		    ; When not using the suppressor, check is the noise triggers	the alarm
 
 		    jp	    SetShotSpr
 

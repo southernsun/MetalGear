@@ -510,11 +510,11 @@ ListenShotsChkTouch:
 
 		    ld	    a, (SelectedWeapon)
 		    sub	    GRENADE_LAUNCHER
-		    jr	    nc,	ChkDiscoverPlayer2	    ; It is not	a handgun or SMG, so no	need to	check the supressor
+		    jr	    nc,	ChkDiscoverPlayer2	    ; It is not	a handgun or SMG, so no	need to	check the suppressor
 
-		    ld	    a, (InvSupressor)
+		    ld	    a, (InvSuppressor)
 		    or	    a
-		    ret	    nz				    ; Using the	supressor
+		    ret	    nz				    ; Using the	suppressor
 
 ChkDiscoverPlayer2:
 		    xor	    a

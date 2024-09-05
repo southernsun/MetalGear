@@ -7,7 +7,7 @@
 ;     1	- Ammo crate
 ;     2	- Card 7
 ;     3	- Card 8
-;     4	- Supressor
+;     4	- Suppressor
 ; DE = XY
 ;
 ;---------------------------------------------------------------------------
@@ -72,4 +72,4 @@ ListDropItems:	    db RATION
 		    db AMMO_CRATE
 		    db CARD7
 		    db CARD8
-		    db SUPRESSOR
+		    db SUPPRESSOR

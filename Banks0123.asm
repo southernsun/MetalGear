@@ -1981,7 +1981,7 @@ DrawWeaponMenu:
 		    ld	    (TempData3+1), a		    ; MetaTiles, Enemy
 
 		    ld	    hl,	Weapons
-		    ld	    b, 8			    ; 7	weapons	+ supressor
+		    ld	    b, 8			    ; 7	weapons	+ suppressor
 
 DrawWeaponMenu2:
 		    push    bc
@@ -2035,7 +2035,7 @@ DrawWeaponMenu3:
 		    call    PrintText			    ; Print weapon's name
 
 		    ld	    a, (TempData)
-		    cp	    SUPRESSOR			    ; Is the supressor?
+		    cp	    SUPPRESSOR			    ; Is the suppressor?
 		    jr	    z, DrawWeaponMenu4		    ; Skip printing ammo amount
 
 		    ld	    hl,	(TempData2+1)		    ; Enemy XY,	MetaTileSetAddr
@@ -2072,7 +2072,7 @@ DrawWeaponMenu5:
 		    cp	    2
 		    jr	    nz,	DrawWeaponMenu6
 
-		    ld	    de,	60A8h			    ; Supressor	coordinates
+		    ld	    de,	60A8h			    ; Suppressor	coordinates
 		    ld	    (TempData2+1), de		    ; Enemy XY,	MetaTileSetAddr
 
 DrawWeaponMenu6:
@@ -6114,11 +6114,11 @@ SetupEnemyRoom:
 
 SetupEnemyRoom2:
 		    ld	    a, (Room)
-		    cp	    150				    ; Supressor	room (3rd floor	building 1)
+		    cp	    150				    ; Suppressor	room (3rd floor	building 1)
 		    jr	    nz,	SetupEnemyRoom3
 
-		    ld	    hl,	GuardSilencerCnt	    ; Four soldiers (supressor room)
-		    ld	    (hl), 4			    ; Four guards in the supressor room
+		    ld	    hl,	GuardSilencerCnt	    ; Four soldiers (suppressor room)
+		    ld	    (hl), 4			    ; Four guards in the suppressor room
 
 SetupEnemyRoom3:
 		    ld	    a, ID_DOG_BASEMENT
@@ -13021,22 +13021,22 @@ DismissActor7:
 
 ;---------------------------------------------------------------------------
 ;
-; Drop the supressor after defeating the four guards
+; Drop the suppressor after defeating the four guards
 ;
 ;---------------------------------------------------------------------------
 
 DismissActor8:
 		    ld	    a, (ix+ACTOR.ID)		    ; Bit 7 = Killed
-		    cp	    ID_GUARD_SILENCER |	080h	    ; Guards that drop the supressor
+		    cp	    ID_GUARD_SILENCER |	080h	    ; Guards that drop the suppressor
 		    jr	    nz,	DismissActor9
 
-		    ld	    hl,	GuardSilencerCnt	    ; Four soldiers (supressor room)
+		    ld	    hl,	GuardSilencerCnt	    ; Four soldiers (suppressor room)
 		    dec	    (hl)
 		    jr	    nz,	DismissActor9
 
-		    ld	    c, SPAWN_SUPRESSOR
+		    ld	    c, SPAWN_SUPPRESSOR
 		    ld	    de,	6224h			    ; XY
-		    jr	    RemoveActorDrop		    ; Drop supressor
+		    jr	    RemoveActorDrop		    ; Drop suppressor
 
 
 DismissActor9:
@@ -13122,7 +13122,7 @@ RemoveActor2_:
 ;     1	- Ammo crate
 ;     2	- Card 7
 ;     3	- Card 8
-;     4	- Supressor
+;     4	- Suppressor
 ; DE = XY
 ;
 ;---------------------------------------------------------------------------

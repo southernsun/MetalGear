@@ -51,7 +51,7 @@
 	
 	include	"actors/bullethv.asm"
 
-	include	"actors/guardsupressor.asm"
+	include	"actors/guardsuppressor.asm"
 
 	include	"actors/mine.asm"
 

@@ -111,14 +111,14 @@ ChkTakeItem4:
 		    cp	    AMMO_CRATE
 		    jp	    z, PickAmmoCrate		    ; Increment	the ammo of the	weapons	in the inventory
 
-		    cp	    SUPRESSOR			    ; Last weapon ID
+		    cp	    SUPPRESSOR			    ; Last weapon ID
 		    jr	    c, PickUpWeapon		    ; It is a weapon.
-		    jr	    z, PickSupressor		    ; Supressor	obtained
+		    jr	    z, PickSuppressor		    ; Suppressor	obtained
 
 		    call    SetItemAsTaken
 
 		    ld	    a, (TempData+1)		    ; Item ID
-		    sub	    SUPRESSOR			    ; Last weapon ID
+		    sub	    SUPPRESSOR			    ; Last weapon ID
 		    cp	    1Ah				    ; Trash bag	with items and weapons
 		    jp	    z, RecoverEquipment		    ; Recover items and	weapons. Add transmitter to inventory
 
@@ -138,7 +138,7 @@ ChkTakeItem4:
 
 AddItemInventory:
 		    ld	    a, (TempData+1)		    ; Item ID
-		    sub	    SUPRESSOR			    ; Remove weapons IDs. Adjust first item ID to 0
+		    sub	    SUPPRESSOR			    ; Remove weapons IDs. Adjust first item ID to 0
 
 		    ld	    hl,	Equipment		    ; Pointer to equipment items array
 		    ld	    b, 25			    ; Number of	available slots
@@ -177,15 +177,15 @@ AddItemInventory4:
 
 ;----------------------------------------------------------------------------
 ;
-; Add supressor	to equipment
+; Add suppressor	to equipment
 ;
 ;----------------------------------------------------------------------------
 
-PickSupressor:
+PickSuppressor:
 		    call    SetItemAsTaken
 
-		    ld	    a, SUPRESSOR
-		    ld	    (InvSupressor), a		    ; set the supressor	in the last slot
+		    ld	    a, SUPPRESSOR
+		    ld	    (InvSuppressor), a		    ; set the suppressor	in the last slot
 		    jp	    EraseTakenItem
 
 
@@ -492,7 +492,7 @@ SetItemAsTaken:
 		    cp	    PLASTIC_BOMB
 		    jr	    c, SetItemAsTaken2		    ; Hand gun,	SMG, Grenade, Rocket
 
-		    cp	    SUPRESSOR
+		    cp	    SUPPRESSOR
 		    ret	    c				    ; Plastic bomb, land mine, missile (consumables)
 
 		    cp	    RATION
