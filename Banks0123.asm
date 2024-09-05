@@ -3129,7 +3129,7 @@ SetBanks_1_2_3_b:
 
 ;----------------------------------------------------------------------------
 ;
-; Load proyectile sprites (bullets, grenade, rocket...)
+; Load projectile sprites (bullets, grenade, rocket...)
 ;
 ;----------------------------------------------------------------------------
 

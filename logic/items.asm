@@ -260,7 +260,7 @@ GetWeapon3:
 		    ld	    (WeaponInUse), a
 		    ld	    (SelectedWeapon), a		    ; Select this weapon
 
-		    call    LoadSprProjectile		    ; Load this	weapon proyectiles
+		    call    LoadSprProjectile		    ; Load this	weapon projectiles
 
 		    ld	    hl,	SprShootsAtt
 		    ld	    b, 18h
