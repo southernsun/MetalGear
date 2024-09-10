@@ -11,10 +11,9 @@ namespace DrawSprites
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static WriteableBitmap? writeableBitmap;
-        private static Image? i;
-        private static int widthAndHeight = 200;
-
+        private static WriteableBitmap? _writeableBitmap;
+        private static Image? _i;
+        private const int WidthAndHeight = 200;
 
         public MainWindow()
         {
@@ -25,89 +24,51 @@ namespace DrawSprites
 
         public void Init()
         {
-            i = new Image();
-            RenderOptions.SetBitmapScalingMode(i, BitmapScalingMode.NearestNeighbor);
-            RenderOptions.SetEdgeMode(i, EdgeMode.Aliased);
+            _i = new Image();
+            RenderOptions.SetBitmapScalingMode(_i, BitmapScalingMode.NearestNeighbor);
+            RenderOptions.SetEdgeMode(_i, EdgeMode.Aliased);
 
-            MyContent.Content = i;
+            MyContent.Content = _i;
 
-            writeableBitmap = new WriteableBitmap(
-                widthAndHeight,
-                widthAndHeight,
+            _writeableBitmap = new WriteableBitmap(
+                WidthAndHeight,
+                WidthAndHeight,
                 96,
                 96,
                 PixelFormats.Bgr32,
                 null);
 
-            i.Source = writeableBitmap;
+            _i.Source = _writeableBitmap;
 
-            i.Stretch = Stretch.None;
-            i.HorizontalAlignment = HorizontalAlignment.Left;
-            i.VerticalAlignment = VerticalAlignment.Top;
+            _i.Stretch = Stretch.None;
+            _i.HorizontalAlignment = HorizontalAlignment.Left;
+            _i.VerticalAlignment = VerticalAlignment.Top;
 
-            i.MouseMove += new MouseEventHandler(i_MouseMove);
-            i.MouseLeftButtonDown +=
-                new MouseButtonEventHandler(i_MouseLeftButtonDown);
-            i.MouseRightButtonDown +=
-                new MouseButtonEventHandler(i_MouseRightButtonDown);
+            _i.MouseMove += i_MouseMove;
+            _i.MouseLeftButtonDown +=
+                i_MouseLeftButtonDown;
+            _i.MouseRightButtonDown +=
+                i_MouseRightButtonDown;
 
-            MyContent.MouseWheel += new MouseWheelEventHandler(w_MouseWheel);
+            MyContent.MouseWheel += w_MouseWheel;
         }
 
         // The DrawPixel method updates the WriteableBitmap by using
         // unsafe code to write a pixel into the back buffer.
         static void DrawPixel(MouseEventArgs e)
         {
-            int column = (int)e.GetPosition(i).X;
-            int row = (int)e.GetPosition(i).Y;
+            int column = (int)e.GetPosition(_i).X;
+            int row = (int)e.GetPosition(_i).Y;
 
-            try
-            {
-                // Reserve the back buffer for updates.
-                writeableBitmap.Lock();
-
-                unsafe
-                {
-                    // Get a pointer to the back buffer.
-                    IntPtr pBackBuffer = writeableBitmap.BackBuffer;
-
-                    // Find the address of the pixel to draw.
-                    pBackBuffer += row * writeableBitmap.BackBufferStride;
-                    pBackBuffer += column * 4;
-
-                    // Compute the pixel's color.
-                    int color_data = 255 << 16; // R
-                    color_data |= 128 << 8;   // G
-                    color_data |= 255 << 0;   // B
-
-                    // Assign the color data to the pixel.
-                    *((int*)pBackBuffer) = color_data;
-                }
-
-                // Specify the area of the bitmap that changed.
-                if (row < widthAndHeight && column < widthAndHeight)
-                {
-                    writeableBitmap.AddDirtyRect(new Int32Rect(column, row, 1, 1));
-                }
-            }
-            finally
-            {
-                // Release the back buffer and make it available for display.
-                writeableBitmap.Unlock();
-            }
+            _writeableBitmap.SetPixel(column, row, Colors.White);
         }
 
         static void ErasePixel(MouseEventArgs e)
         {
-            byte[] ColorData = { 0, 0, 0, 0 }; // B G R
+            int column = (int)e.GetPosition(_i).X;
+            int row = (int)e.GetPosition(_i).Y;
 
-            Int32Rect rect = new Int32Rect(
-                    (int)(e.GetPosition(i).X),
-                    (int)(e.GetPosition(i).Y),
-                    1,
-                    1);
-
-            writeableBitmap.WritePixels(rect, ColorData, 4, 0);
+            _writeableBitmap.SetPixel(column, row, Colors.Black);
         }
 
         static void i_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -134,7 +95,9 @@ namespace DrawSprites
 
         static void w_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            System.Windows.Media.Matrix m = i.RenderTransform.Value;
+            if (_i == null) return;
+
+            var m = _i.RenderTransform.Value;
 
             if (e.Delta > 0)
             {
@@ -153,7 +116,7 @@ namespace DrawSprites
                     e.GetPosition(sender as UIElement).Y);
             }
 
-            i.RenderTransform = new MatrixTransform(m);
+            _i.RenderTransform = new MatrixTransform(m);
         }
     }
 }
